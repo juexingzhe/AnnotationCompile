@@ -1,0 +1,1 @@
+include ':app', ':annotationprocess', ':annotation', ':annotationroute'
