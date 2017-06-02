@@ -22,7 +22,6 @@ public class AnnotationRouteFinder implements Provider {
     public String getActivityRouteName(String activityName) {
 
         Provider finder = finderMap.get(activityName);
-        Log.i("AnnotationRouteFinder", activityName.toString());
         try {
             if (null == finder) {
                 Class<?> annotationroute = Class.forName(PATH_NAME + TYPE_NAME);
@@ -30,11 +29,9 @@ public class AnnotationRouteFinder implements Provider {
                 finderMap.put(activityName, finder);
             }
         } catch (Exception e) {
-            Log.i("AnnotationRouteFinder", e.toString());
             e.printStackTrace();
         }
         if (null == finder) {
-            Log.i("AnnotationRouteFinder", "finder = null");
             return "";
         }
         return finder.getActivityRouteName(activityName);
